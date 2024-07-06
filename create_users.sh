@@ -11,7 +11,7 @@ INPUT_FILE=$1
 # Log file
 LOG_FILE="/var/log/user_management.log"
 # Password file
-PASSWORD_FILE="/var/secure/user_passwords.txt"
+PASSWORD_FILE="/var/secure/user_passwords.csv"
 
 # Ensure log and password files exist and are writable
 touch $LOG_FILE
