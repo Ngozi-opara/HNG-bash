@@ -50,6 +50,9 @@ create_user_and_groups() {
         else
             echo "Group $group already exists" >> $LOG_FILE
         fi
+	# Add user to the group
+	sudo usermod -aG "$group" "$user"
+	echo "Added $user to $group"
     done
 
     # Create the user
