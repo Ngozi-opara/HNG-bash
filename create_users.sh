@@ -63,6 +63,13 @@ create_user_and_groups() {
         echo "$username:$password" >> $PASSWORD_FILE
     else
         echo "User $username already exists" >> $LOG_FILE
+	usermod -a -G $groups $username
+	echo "$username:$password" | chpasswd
+	echo "User $username updated with groups $groups" >> $LOG_FILE
+
+	# Update the password securely
+	sed -i "/^$username:/d" $PASSWORD_FILE
+	echo "$username:$password" >> $PASSWORD_FILE
     fi
 }
 
